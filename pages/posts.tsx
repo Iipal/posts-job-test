@@ -34,7 +34,7 @@ const Posts = ({ syncPosts }) => {
 
   if (loading) {
     return (
-      <MainLayout>
+      <MainLayout title='Loading posts...'>
         <Loader />
       </MainLayout>
     );

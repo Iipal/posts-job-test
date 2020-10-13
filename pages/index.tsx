@@ -20,10 +20,9 @@ const Home: React.FC = () => {
   return (
     <MainLayout>
       <HomeTitle>Hello, Posts World!</HomeTitle>
-      <hr />
       <HomeAboutP>
-        In this app, I've learned how to create posts, comments on it, using ReduxJS with
-        NextJS and much much more...
+        In this app, I've learned how to create posts, using ReduxJS with NextJS, styled
+        components and much much more...
       </HomeAboutP>
       <HomeLorem>
         {/* <p className='font-weight-light w-50'> */}

@@ -1,12 +1,4 @@
-import {
-  POST_CREATE,
-  POSTS_FETCH,
-  LOADER_SHOW,
-  LOADER_HIDE,
-  ALERT_SHOW,
-  ALERT_HIDE,
-  POST_DELETE,
-} from "./types";
+import { POST_CREATE, POSTS_FETCH, POST_DELETE, LOADER_SHOW, LOADER_HIDE } from "./types";
 import { PostData } from "../interfaces/PostData";
 import axios from "axios";
 
@@ -31,13 +23,3 @@ export const fetchPosts = () => {
 
 export const loaderShow = () => ({ type: LOADER_SHOW });
 export const loaderHide = () => ({ type: LOADER_HIDE });
-
-export const alertShow = (text) => {
-  return (dispatch) => {
-    dispatch({ type: ALERT_SHOW, paylod: text });
-    setTimeout(() => {
-      dispatch(alertHide());
-    }, 2500);
-  };
-};
-export const alertHide = () => ({ type: ALERT_HIDE });

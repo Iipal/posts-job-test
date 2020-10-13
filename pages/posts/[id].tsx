@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { NextRouter, useRouter } from "next/router";
+import { useRouter } from "next/router";
 import { PostData } from "../../interfaces/PostData";
 import axios from "axios";
 import { MainLayout } from "../../layouts/MainLayout";
 import Loader from "../../components/Loader";
 import { RootReducerProps } from "../../interfaces/ReducersState";
 import { NextPageContext } from "next";
-import { ParsedUrlQuery } from "querystring";
 
 interface PostPageProps {
   post: PostData;
@@ -20,7 +19,6 @@ async function APIRequest(postID, setterCallback: null | Function = null) {
     data = await axios
       .get(`https://simple-blog-api.crew.red/posts/${postID}`)
       .then(({ data }) => data);
-    console.log(data);
 
     if (setterCallback) {
       setterCallback(data);
@@ -41,8 +39,6 @@ function Post({ post: serverPost }: PostPageProps) {
     }
   }, []);
 
-  console.log(typeof post, typeof serverPost, loading, alert);
-
   if (Object.keys(post).length === 0) {
     return (
       <MainLayout title='Loading post ...'>
@@ -54,7 +50,6 @@ function Post({ post: serverPost }: PostPageProps) {
   let postCtx = (
     <>
       <h1>{post.title}</h1>
-      <hr />
       <p>{post.body}</p>
     </>
   );
@@ -73,8 +68,6 @@ interface PostNextPageContext extends NextPageContext {
 }
 
 Post.getInitialProps = async ({ query, req }: PostNextPageContext) => {
-  console.log("init");
-
   if (!req) {
     return { post: null };
   }
