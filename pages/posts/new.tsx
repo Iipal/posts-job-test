@@ -67,6 +67,9 @@ const FormGroup = styled.div`
     border-image: linear-gradient(to right, #eee, #666);
     border-image-slice: 1;
   }
+  > input:required {
+    box-shadow: none;
+  }
 
   > textarea {
     color: #eee;
@@ -78,6 +81,9 @@ const FormGroup = styled.div`
     overflow: auto;
     resize: vertical;
     max-height: 256px;
+  }
+  > textarea:required {
+    box-shadow: none;
   }
 `;
 
