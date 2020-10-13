@@ -12,6 +12,15 @@ const GlobalStyle = createGlobalStyle`
     background: #141414;
     color: #eee;
   }
+
+  html { /* Hide scroll bar in IE and Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  ::-webkit-scrollbar { /* Hide scroll bar in Chrome */
+    width: 0px;
+  }
 `;
 
 export default function PostsApp({ Component, pageProps }: AppProps) {

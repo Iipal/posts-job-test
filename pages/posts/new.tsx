@@ -138,7 +138,7 @@ export default function NewPost() {
             name='title'
             type='input'
             placeholder='Title'
-            id='title'
+            id='post-title'
             required
           />
           <label htmlFor='post-title' className='form__label'>

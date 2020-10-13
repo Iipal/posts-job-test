@@ -16,9 +16,7 @@ async function APIRequest(postID, setterCallback: null | Function = null) {
   let data = null;
 
   try {
-    data = await axios
-      .get(`https://simple-blog-api.crew.red/posts/${postID}`)
-      .then(({ data }) => data);
+    data = await axios.get(`${process.env.POSTS_API}/${postID}`).then(({ data }) => data);
 
     if (setterCallback) {
       setterCallback(data);

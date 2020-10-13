@@ -8,23 +8,53 @@ const PostsListGroup = styled.span`
   flex-direction: column;
   width: 70vw;
   margin: 10px auto;
+  margin-bottom: 25px;
   padding: 25px;
   border: 1px solid #666;
   border-radius: 5px;
+  box-shadow: 0px 0px 10px 2px #222;
+`;
+
+const PostsListItemControlsContainer = styled.div`
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding: 15px 20px 15px 20px;
+  border-top: 1px solid #666;
+  border-radius: 2px;
+`;
+
+const PostsListItemInfoContainer = styled.div`
+  width: 80%;
+  padding: 15px 20px 15px 20px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  border: 1px solid #191919;
+  border-radius: 10px;
+  background-color: #191919;
+  box-shadow: 0px 0px 5px 1px #161616;
+`;
+
+const PostsListItemID = styled.span`
+  padding: 5px;
+  padding-top: 7px;
+  border: 1px solid #eee;
+  border-radius: 4px;
 `;
 
 const PostsListItemTitle = styled.h5`
-  display: inline-block;
   text-align: center;
   font-size: 2.2rem;
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
+  margin-bottom: 20px;
 `;
 
 const PostsListItemDescription = styled.p`
   margin: 10px auto;
-  width: 75%;
   margin-top: 6px;
+  width: 90%;
   text-align: left;
 `;
 
@@ -59,9 +89,15 @@ export default function Post({ post }: PayloadPost) {
 
   return (
     <PostsListGroup>
-      <PostsListItemTitle>{post.title}</PostsListItemTitle>
-      <PostsListItemDescription>{post.body}</PostsListItemDescription>
-      <PostDeleteButton onClick={clickHandler}>Delete</PostDeleteButton>
+      <PostsListItemInfoContainer>
+        <PostsListItemTitle>{post.title}</PostsListItemTitle>
+        <PostsListItemDescription>{post.body}</PostsListItemDescription>
+      </PostsListItemInfoContainer>
+
+      <PostsListItemControlsContainer>
+        <PostsListItemID>{post.id}</PostsListItemID>
+        <PostDeleteButton onClick={clickHandler}>Delete</PostDeleteButton>
+      </PostsListItemControlsContainer>
     </PostsListGroup>
   );
 }

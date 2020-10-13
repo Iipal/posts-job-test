@@ -4,6 +4,10 @@ import thunk from "redux-thunk";
 import { rootReducer } from "./rootReducer";
 import { composeWithDevTools } from "redux-devtools-extension";
 
+/**
+ * This code for using Redux with NextJS was taken from unknown site, so it's just works.
+ */
+
 let store;
 
 function initStore(preloadedState = {}) {

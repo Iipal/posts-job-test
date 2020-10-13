@@ -12,9 +12,7 @@ export const fetchPosts = () => {
   return async (dispatch) => {
     dispatch(loaderShow());
 
-    const payload = await axios
-      .get("https://simple-blog-api.crew.red/posts")
-      .then(({ data }) => data);
+    const payload = await axios.get(process.env.POSTS_API).then(({ data }) => data);
     dispatch({ type: POSTS_FETCH, payload: payload.filter((p) => p.title && p.body) });
 
     dispatch(loaderHide());

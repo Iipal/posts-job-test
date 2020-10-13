@@ -1,5 +1,4 @@
 import { PostData } from "../interfaces/PostData";
-import { PostsReducerProps } from "../interfaces/ReducersState";
 import { POST_CREATE, POSTS_FETCH, POST_DELETE } from "./types";
 
 const initState = {
