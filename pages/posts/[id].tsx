@@ -13,10 +13,7 @@ interface PostPageProps {
   post: PostData;
 }
 
-async function APIRequest(
-  postID: number | string,
-  setterCallback: null | Function = null
-) {
+async function APIRequest(postID, setterCallback: null | Function = null) {
   let data = null;
 
   try {
@@ -34,7 +31,7 @@ async function APIRequest(
 
 function Post({ post: serverPost }: PostPageProps) {
   const [post, setPost] = useState(serverPost);
-  const router: PostNextRouter = useRouter();
+  const router = useRouter();
   const alert = useSelector((state: RootReducerProps) => state.app.alert);
   const loading = useSelector((state: RootReducerProps) => state.app.loading);
 

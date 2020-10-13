@@ -1,13 +1,28 @@
-import "../styles/globals.css";
-import { useStore } from "../redux/store";
+import { createGlobalStyle } from "styled-components";
 import { Provider } from "react-redux";
+import { useStore } from "../redux/store";
+import { AppProps } from "next/dist/next-server/lib/router/router";
 
-export default function PostsApp({ Component, pageProps }) {
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    background: #141414;
+    color: #eee;
+  }
+`;
+
+export default function PostsApp({ Component, pageProps }: AppProps) {
   const store = useStore({});
 
   return (
-    <Provider store={store}>
-      <Component {...pageProps} />
-    </Provider>
+    <>
+      <GlobalStyle />
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
+    </>
   );
 }

@@ -1,9 +1,10 @@
 ## Getting Started
 
-Install dependicies and run the development server:
+Install dependicies then build and run server:
 
 ```bash
-$> npm i && npm run dev
+$> npm i
+$> npm run build && npm run start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
